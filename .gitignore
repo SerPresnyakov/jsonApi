@@ -1,0 +1,6 @@
+target
+.idea
+*.tar
+*.gz
+node_modules
+release/app
