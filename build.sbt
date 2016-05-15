@@ -22,17 +22,17 @@ resolvers ++= Seq(
 )
 
 publishTo := {
-  val nexus = "https://oss.sonatype.org/"
+  val nexus = "http://192.168.99.100:8081/"
   if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
+    Some("snapshots" at nexus + "repository/maven-snapshots/")
   else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+    Some("releases" at nexus + "repository/maven-releases/")
 }
 
 publishMavenStyle := true
 publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
-credentials += Credentials(Path.userHome / ".ivy2" / ".centralCred")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials_local")
 
 pomExtra :=
   <url>https://github.com/kondaurovDev/jsonApi</url>
